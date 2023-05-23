@@ -1,0 +1,35 @@
+﻿@import './core/fonts';
+@import './core/colors';
+@import './core/mixins';
+
+@import './components/shared/utilities';
+@import './components/shared/buttons';
+@import './components/shared/header';
+@import './components/shared/footer';
+
+@import './components/admin/adminBase';
+
+@import './components/home/showcase';
+@import './components/home/bestCollection';
+@import './components/home/sale';
+@import './components/home/reviews';
+@import './components/home/newsletter';
+@import './components/home/topSelling';
+
+@import './components/productDetails/banner';
+@import './components/productDetails/details';
+@import './components/productDetails/relatedProducts';
+@import './components/productDetails/smallCards';
+
+
+@import './components/contact/forms';
+@import './components/contact/contactForm';
+@import './components/contact/map';
+
+@import './components/forms/productForm';
+@import './components/forms/loginForm';
+@import './components/forms/registerForm';
+@import './components/forms/addUserForm';
+
+
+@import './components/forms/_loginForm.scss';

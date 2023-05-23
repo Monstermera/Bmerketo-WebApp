@@ -1,0 +1,172 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+button {
+    border: 1px solid $color-grey-4;
+    background-color: transparent;
+    color: $color-dark-2;
+    transition: all 0.2s;
+    font-family: $font-poppins;
+    padding: 10px 35px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $color-theme-1;
+        color: $color-white;
+    }
+}
+
+.btn-theme {
+    cursor: pointer;
+    color: $color-white;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+    background-color: $color-theme-1;
+    transition: all 0.2s;
+    font-family: $font-poppins;
+    padding: 10px 35px;
+
+    &:hover {
+        background-color: $color-dark-2;
+        color: $color-white;
+    }
+}
+
+.btn-toggle {
+    cursor: pointer;
+    font-family: $font-poppins;
+    font-size: 1.8em;
+    padding: 0 !important;
+    background-color: transparent;
+    border: none !important;
+    text-decoration: none;
+    color: $color-dark-1 !important;
+    background-color: transparent !important;
+
+    &:hover {
+        color: $color-theme-1 !important;
+    }
+}
+
+.btn-toggle-white {
+    cursor: pointer;
+    font-family: $font-poppins;
+    font-size: 1.8em;
+    padding: 0 !important;
+    background-color: transparent;
+    border: none !important;
+    text-decoration: none;
+    
+    &:hover {
+        color: $color-white !important;
+        background-color: transparent !important;
+    }
+}
+
+.btn-outline-white {
+    cursor: pointer;
+    font-family: $font-poppins;
+    padding: 10px 25px;
+    border: 1px solid $color-dark-3;
+    background-color: $color-white;
+    color: $color-dark-3;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        border: 1px solid $color-dark-2;
+        background-color: $color-dark-2;
+        color: $color-white;
+    }
+}
+
+.btn-outline-dark {
+    cursor: pointer;
+    font-family: $font-poppins;
+    padding: 10px 25px;
+    border: 0px solid $color-white;
+    background-color: transparent;
+    color: $color-white;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        border: 0px solid $color-dark-2;
+        background-color: transparent;
+        color: $color-white;
+    }
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+
+
+    &:hover .dropdown-content {
+        display: block;
+    }
+
+    .drop-btn {
+        font-size: 18px;
+        color: $color-grey-2;
+        border: 0;
+
+        &:hover {
+            color: $color-theme-1;
+            background-color: transparent !important;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        width: 200px;
+        z-index: 1;
+        background-color: $color-white;
+        box-shadow: 0px 8px 16px 0px $color-grey-4;
+
+        .link {
+            color: $color-dark-2;
+            text-decoration: none;
+            display: block;
+        }
+    }
+}
+
+#loginLink {
+    width: 100px;
+
+     i {
+         margin-right: 10px;
+     }
+}
+
+.create {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .new {
+        background-color: $color-theme-1;
+        color: $color-white;
+        font-family: $font-poppins;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        transition: all 0.2s;
+        padding: 15px;
+
+
+        &:hover {
+            background-color: $color-dark-2;
+        }
+    }
+}

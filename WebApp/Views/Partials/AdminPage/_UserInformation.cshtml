@@ -1,0 +1,55 @@
+﻿@{
+    var users = await userService.GetAllUsersAsync();
+}
+@model IEnumerable<UserInformationViewModel>
+<section class="user-grid">
+    <h1 class="office-title">All Users</h1>
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Company</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.FirstName @user.LastName</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.Company</td>
+                        @foreach (var address in user.Addresses)
+                        {
+                            <td>@address.StreetName, @address.PostalCode @address.City</td>
+                        }
+                        <td>@user.Role</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div class="buttons">
+                                <form asp-controller="admin" asp-action="Delete" asp-route-id="@user.UserId" method="post">
+                                    <button type="submit" class="trash"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                                <form asp-controller="admin" asp-action="Update" method="post">
+                                    <input type="hidden" name="userId" value="@user.UserId" />
+                                    <select id="role-select" name="newRole">
+                                        <option value="user">User</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                    <button type="submit" class="save">Save</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+

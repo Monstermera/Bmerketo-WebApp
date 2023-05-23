@@ -1,0 +1,105 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.login-form {
+    padding: 100px 0 60px 0;
+
+    @include lg {
+        padding: 7%;
+    }
+
+    .container {
+        border: 0px solid $background-color-2;
+        padding: 30px 30px 100px 30px;
+
+        @include md {
+            border: 1px solid $background-color-2;
+        }
+    }
+
+    .title {
+        margin-bottom: 30px;
+        color: $color-grey-5;
+
+        .box {
+            width: 60px;
+            border: 1px solid $border-color-5;
+            margin-top: 5px;
+        }
+    }
+
+    form {
+        display: grid;
+        column-gap: 30px;
+        row-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "error"
+            "email"
+            "password"
+            "rememberMe"
+            "button";
+
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "error error"
+                "email email"
+                "password password"
+                "rememberMe rememberMe"
+                "button button";
+        }
+
+        .error {
+            grid-area: error;
+        }
+
+        .email {
+            grid-area: email;
+        }
+
+        .password {
+            grid-area: password;
+        }
+
+        .rememberMe {
+            grid-area: rememberMe;
+            margin: 10px 0;
+        }
+
+        button {
+            grid-area: button;
+            margin-top: 20px;
+
+            @include lg {
+                display: flex;
+                justify-self: flex-start;
+            }
+        }
+    }
+
+
+    .newAccount {
+        position: relative;
+        left: 60px;
+        top: 22px;
+        color: $color-theme-1;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .newPassword {
+        float: inline-end;
+        color: $color-theme-1;
+        font-size: 14px;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}    
+
+

@@ -1,0 +1,88 @@
+﻿@{
+    var isAdmin = signInManager.IsSignedIn(User) && User.IsInRole("admin");
+    var displayName = User.FindFirst("DisplayName")?.Value;
+    var isSignedIn = signInManager.IsSignedIn(User);
+}
+
+<header>
+    <div class="container">
+        <img src="/Images/Logo.svg" class="logo" alt="Image logo" />
+
+        <nav id="menu" class="menu-links">
+            <a class="link @(Context.Request.Path.Equals(Url.Action("Index", "Home")) ? "active" : "")" asp-controller="home" asp-action="Index">HOME</a>
+            <a class="link @(Context.Request.Path.Equals(Url.Action("Index", "Products")) ? "active" : "")" asp-controller="products" asp-action="Index">PRODUCTS</a>
+            <a class="link @(Context.Request.Path.Equals(Url.Action("Index", "Contacts")) ? "active" : "")" asp-controller="contacts" asp-action="Index">CONTACT</a>
+        </nav>
+
+
+        <nav class="menu-icons">
+            <div id="myOverlay" class="overlay">
+                <span class="closebtn" onclick="closeSearch()" title="Close Overlay"><i class="fa-sharp fa-solid fa-x"></i></span>
+                <div class="overlay-content">
+                    <form asp-controller="products" asp-action="Search">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button class="searchSubmit" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <button class="openBtn" onclick="openSearch()"><i class="fa-regular fa-magnifying-glass"></i></button>
+
+
+
+            @if (isAdmin)
+            {
+                <button class="btn cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
+                    <a id="cart" class="link" asp-controller="shoppingCart" asp-action="Index">
+                        <span class="badge rounded-pill">2</span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </button>
+
+
+                <div class="dropdown">
+                    <bu asp-controller="Admin" asp-action="Index" class="drop-btn"><i class="fa-solid fa-user"></i>Admin</bu>
+                    <div class="dropdown-content">
+                        <a class="link" asp-controller="Admin" asp-action="Index">Back Office</a>
+                        <a class="link" asp-controller="Account" asp-action="Index">My Account</a>
+                        <a class="link" asp-controller="Account" asp-action="Logout">Log out</a>
+                    </div>
+                </div>
+            }
+            else if (isSignedIn)
+            {
+                <button class="btn cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
+                    <a id="cart" class="link" asp-controller="shoppingCart" asp-action="Index">
+                        <span class="badge rounded-pill">2</span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </button>
+
+                <div class="dropdown">
+                    <button class="drop-btn" asp-controller="Account" asp-action="Index"><i class="fa-solid fa-user"></i>@displayName</button>
+                    <div class="dropdown-content">
+                        <a class="link" asp-controller="Account" asp-action="Index">My Account</a>
+                        <a class="link" asp-controller="Account" asp-action="Logout">Log out</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a class="link" id="loginLink" asp-controller="UserLogin" asp-action="Index"><i class="fa-solid fa-user"></i>Log in</a>
+                <button class="btn cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
+                    <a id="cart" class="link" asp-controller="shoppingCart" asp-action="Index">
+                        <span class="badge rounded-pill">2</span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </button>
+
+            }
+        </nav>
+
+        <div class="toggle">
+            <button class="btn-toggle btn-outline-white" data-option="toggle" data-target="#menu">
+                <i id="icon" class="fa-regular fa-bars"></i>
+            </button>
+        </div>
+    </div>
+    </header>

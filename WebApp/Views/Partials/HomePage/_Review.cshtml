@@ -1,0 +1,18 @@
+﻿@inject ReviewService reviewService
+
+@{
+    var review = reviewService.GetReview();
+}
+<section class="reviews">
+    <div class="container">
+
+        @if (review.GridItems != null)
+        {
+            @foreach (var item in review.GridItems)
+            {
+                <partial name="/Views/Partials/HomePage/_ReviewItem.cshtml" model="item" />
+            }
+        }
+
+    </div>
+</section>

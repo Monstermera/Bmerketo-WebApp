@@ -1,0 +1,125 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.sale {
+    @include lg {
+        background-color: $color-theme-2;
+        height: 590px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include lg {
+            padding-top: 75px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        @include xl {
+            padding-top: 75px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @include xxl {
+            padding-left: 35px;
+        }
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        border: 1px solid $border-color-2;
+        margin: 0;
+
+        @include lg {
+            width: 300px;
+            height: 430px;
+            margin-right: 10px;
+        }
+
+        @include xxl {
+            width: 369px;
+        }
+
+        .card-body {
+            .card-title {
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .box {
+                margin-bottom: 15px;
+            }
+
+            .old-price {
+                padding: 10px;
+            }
+
+            .cart {
+                color: $cart-color;
+                padding-right: 20px;
+            
+                &:hover {
+                    color: $color-theme-1;
+                }
+            }
+        }
+
+        .texts {
+            text-align: center;
+            margin-top: 60px;
+
+            h6 {
+                color: $color-theme-1;
+                font-size: 18px;
+                font-family: $font-poppins;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                color: $color-dark-3;
+                font-size: 49px;
+                font-family: $font-playfair;
+                font-weight: $font-weight-bold;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                color: $color-dark-3;
+                font-size: 24px;
+                font-family: $font-poppins;
+                font-weight: $font-weight-bold;
+                margin-bottom: 20px;
+            }
+
+            h5 {
+                color: $color-grey-5;
+                font-size: 16px;
+                font-family: $font-roboto;
+                font-weight: $font-weight-regular;
+                margin-bottom: 50px;
+            }
+
+            a {
+                color: $color-dark-3;
+                font-size: 16px;
+                font-family: $font-poppins;
+                font-weight: $font-weight-regular;
+
+                &:hover {
+                    color: $color-theme-1;
+                }
+            }
+        }
+    }
+}

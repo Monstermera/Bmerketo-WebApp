@@ -1,0 +1,67 @@
+﻿@model ProductRegisterViewModel
+
+@{
+    ViewData["Title"] = "Add new product";
+}
+
+<section class="product-form">
+
+    <div asp-validation-summary="ModelOnly" class="error"></div>
+
+    <div class="container">
+        <div class="title">
+            @ViewData["Title"]
+            <div class="box"></div>
+        </div>
+
+        <form method="post" asp-action="Register" enctype="multipart/form-data" novalidate onsubmit="validateProductForm(event)">
+
+            <div class="articleNumber form-group">
+                <label asp-for="ArticleNumber"></label>
+                <input asp-for="ArticleNumber" class="form-control" id="articleNumber" class="form-label" onkeyup="validateArticleNumber('articleNumber')" required />
+                <small><span id="articleNumberError" asp-validation-for="ArticleNumber" class="error"></span></small>
+            </div>
+
+
+            <div class="name form-group">
+                <label asp-for="Name"class="form-label"></label>
+                <input asp-for="Name" id="name" class="form-control" onkeyup="validateText('name')" required />
+                <small><span id="nameError" asp-validation-for="Name" class="error"></span></small>
+            </div>
+
+            <div class="price form-group">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" id="price" class="form-control" onkeyup="validatePrice('price')" required />
+                <small><span id="priceError" asp-validation-for="Price" class="error"></span></small>
+            </div>
+
+           <div class="tag form-group" style="margin-bottom: 20px;">
+                <label class="tag">Product Tag*</label>
+                @foreach(SelectListItem tag in ViewBag.Tags)
+                {
+                    <div class="form-check">
+                        <input type="checkbox" name="Tags" id="tag-@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" class="form-check-input" />
+                        <label for="tag-@tag.Text-@tag.Value" class="small form-checkbox-label">@tag.Text</label>
+                    </div>
+			    }
+                <span id="tagsError" class="error-message"></span>
+
+			</div>
+
+            <div class="imageUrl form-group">
+                <label asp-for="ImageUrl" class="form-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <small><span asp-validation-for="ImageUrl" class="error"></span></small>
+            </div>
+
+            <div class="description form-group">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <small><span asp-validation-for="Description" class="error"></span></small>
+            </div>
+
+            <button class="btn-theme">CREATE</button>
+
+        </form>
+    </div>
+</section>

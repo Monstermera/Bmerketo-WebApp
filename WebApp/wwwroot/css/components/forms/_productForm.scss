@@ -1,0 +1,82 @@
+﻿@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.product-form {
+    padding: 100px 0 60px 0;
+
+    @include lg {
+        padding: 7%;
+    }
+
+    .container {
+        border: 0px solid $background-color-2;
+        padding: 30px 30px 100px 30px;
+
+        @include md {
+            border: 1px solid $background-color-2;
+        }
+    }
+
+    .title {
+        margin-bottom: 30px;
+        color: $color-grey-5;
+
+        .box {
+            width: 60px;
+            border: 1px solid $border-color-5;
+            margin-top: 5px;
+        }
+    }
+
+    form {
+        display: grid;
+        column-gap: 30px;
+        row-gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-areas: "articleNumber" "name" "price" "tag" "imageUrl" "description" "button";
+
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "articleNumber articleNumber" "name name" "price price" "tag tag" "imageUrl imageUrl" "description description" "button button";
+        }
+
+        .articleNumber {
+            grid-area: articleNumber;
+        }
+
+        .name {
+            grid-area: name;
+        }
+
+        .price {
+            grid-area: price;
+        }
+
+        .tag {
+            grid-area: tag;
+        }
+
+        .imageUrl {
+            grid-area: imageUrl;
+        }
+
+        .description {
+            grid-area: description;
+        }
+
+        button {
+            grid-area: button;
+            margin-top: 20px;
+
+            @include lg {
+                display: flex;
+                justify-self: flex-start;
+            }
+        }
+    }
+}
+
+.tag {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+﻿@model UserLoginViewModel
+@{
+    ViewData["Title"] = "Login to Your Account";
+}
+<section class="login-form">
+    <div class="container">
+        <div class="title">
+            @ViewData["Title"]
+            <div class="box"></div>
+        </div>
+
+        <form method="post" novalidate onsubmit="validateLoginForm(event)">
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="email form-group">
+                <a class="newAccount" asp-controller="UserRegister" asp-action="Index">Don't have an Account yet?</a>
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" id="loginEmail" onkeyup="validateEmail('loginEmail')" required  />
+                <small><span id="loginEmailError" asp-validation-for="Email" class="error"></span></small>
+            </div>
+
+            <div class="password form-group">
+                <a class="newPassword" asp-controller="account" asp-action="newPassword">Forgot Your Password?</a>
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" id="loginPassword" onkeyup="validatePassword('loginPassword')" required />
+                <small><span id="loginPasswordError" asp-validation-for="Password" class="error"></span></small>
+            </div>
+
+            <div class="rememberMe form-checkbox-group">
+                <label class="custom-checkbox">
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">LOG IN</button>
+
+        </form>
+    </div>
+</section>

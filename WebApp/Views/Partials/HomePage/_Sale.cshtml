@@ -1,0 +1,34 @@
+﻿@inject SaleService saleService
+
+@{
+    var sale = saleService.GetSale();
+}
+
+@if (sale != null)
+{
+    <section class="sale">
+        <div class="container">
+
+            @if (sale.Sale != null)
+            {
+                var saleCount = sale.Sale.Count();
+                var middleItem = sale.Sale.ElementAt(saleCount / 2);
+
+                <partial name="/Views/Partials/HomePage/_SaleItem.cshtml" model="@(sale.Sale.First())" />
+
+                <div class="card">
+                    <div class="texts">
+                        <h6>@sale.Ingress</h6>
+                        <h2>@sale.Title</h2>
+                        <h3>@sale.SecondTitle</h3>
+                        <h5>@sale.Description</h5>
+                        <a>@sale.Discover</a>
+                    </div>
+                </div>
+
+                <partial name="/Views/Partials/HomePage/_SaleItem.cshtml" model="@(sale.Sale.Last())" />
+            }
+
+        </div>
+    </section>
+}

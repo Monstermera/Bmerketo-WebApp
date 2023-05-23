@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\components\contact\_contactForm.scss" />
+    <None Include="wwwroot\css\components\contact\_forms.scss" />
+    <None Include="wwwroot\css\components\contact\_map.scss" />
+    <None Include="wwwroot\css\components\home\_bestCollection.scss" />
+    <None Include="wwwroot\css\components\home\_newsletter.scss" />
+    <None Include="wwwroot\css\components\home\_reviews.scss" />
+    <None Include="wwwroot\css\components\home\_sale.scss" />
+    <None Include="wwwroot\css\components\home\_showcase.scss" />
+    <None Include="wwwroot\css\components\home\_topSelling.scss" />
+    <None Include="wwwroot\css\components\forms\_loginForm.scss" />
+    <None Include="wwwroot\css\components\productDetails\_banner.scss" />
+    <None Include="wwwroot\css\components\productDetails\_details.scss" />
+    <None Include="wwwroot\css\components\productDetails\_relatedProducts.scss" />
+    <None Include="wwwroot\css\components\productDetails\_smallCards.scss" />
+    <None Include="wwwroot\css\components\forms\_registerForm.scss" />
+    <None Include="wwwroot\css\components\shared\_buttons.scss" />
+    <None Include="wwwroot\css\components\shared\_footer.scss" />
+    <None Include="wwwroot\css\components\shared\_header.scss" />
+    <None Include="wwwroot\css\components\shared\_utilities.scss" />
+    <None Include="wwwroot\css\core\_colors.scss" />
+    <None Include="wwwroot\css\core\_fonts.scss" />
+    <None Include="wwwroot\css\core\_mixins.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

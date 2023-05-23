@@ -1,0 +1,101 @@
+﻿@model ProductModel
+
+<section class="details">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="images">
+                    <img class="large-img" src="/Images/products/@Model.ImageUrl" alt="@Model.Name" />
+                    <div class="small-img">
+                        <img src="/Images/products/@Model.ImageUrl" alt="@Model.Name" />
+                        <img src="/Images/products/@Model.ImageUrl" alt="@Model.Name" />
+                        <img src="/Images/products/@Model.ImageUrl" alt="@Model.Name">
+                        <img src="/Images/products/@Model.ImageUrl" alt="@Model.Name" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="details-box">
+                    <div class="text-box">
+                        <h3>@Model.Name.Substring(0,1).ToUpper()@Model.Name.Substring(1).ToLower()</h3>
+                        <p>Lirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        <div class="box"></div>
+                    </div>
+
+                    <div class="small-details">
+                        <span class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <p class="reviews">16 Reviews</p>
+                        <p class="price">$@string.Format("{0:0.00}", @Model.Price)</p>
+                    </div>
+
+                    <div class="quantity">
+                        <button class="plusminus">-</button>
+                        <span>2</span>
+                        <button class="plusminus">+</button>
+                        <button class="btn-theme">Add to Cart<i class="fa-regular fa-cart-plus"></i></button>
+                    </div>
+
+                    <div class="stock">
+                        <span class="dot1"></span>
+                        <span class="dot2"></span>
+                        <span class="dot3"></span>
+                        <p>SKU: @Model.ArticleNumber</p>
+                    </div>
+
+                    <button class="wish">Add to wishlist</button>
+                    
+                    <p class="category">
+                        Category: @string.Join(", ", Model.Tags.Select(t => t.TagName))
+                    </p>
+                </div>
+            </div>
+
+            <span class="webshop-info">
+                <button class="des">DESCRIPTION</button>
+                <button>ADDITIONAL INFO</button>
+                <button>REVIEWS</button>
+                <button>SHIPPING & DELIVERY</button>
+            </span>
+
+            <div class="title">
+                <h4>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie."</h4>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="text-box">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.
+                        </p>
+                        <p>Accusantium laborum pretium hic excepturi harum repellat facilisis convallis potenti, adipiscing lectus aliqua. Asperiores repudiandae ipsam error erat, accusamus, cum taciti unde?</p>
+                        <p>
+                            Praesentium, pariatur, tempora consequuntur purus sapiente, iaculis vitae consequatur, rhoncus earum eleifend, hendrerit ipsum rhoncus ex error, impedit!
+                            Alias laboris sequi curae aptent? Eu sagittis eu, distinctio tortor? Dapibus delectus! Consequuntur luctus.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="product-textImg">
+                        <img src="/Images/products/@Model.ImageUrl" alt="@Model.Name" />
+                    </div>
+                </div>
+
+                <div class="box"></div>
+        </div>
+    </div>
+    </div>
+</section>
+

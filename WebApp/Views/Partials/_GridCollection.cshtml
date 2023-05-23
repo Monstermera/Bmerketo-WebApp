@@ -1,0 +1,40 @@
+﻿@{
+    var products = await productService.GetByTagAsync("featured");
+}
+
+@model GridCollectionViewModel
+
+<section class="grid-collection" style="padding-top: 5rem;">
+    <h1 class="section-title">@Model.Title</h1>
+
+    @if (Model.Categories != null)
+    {
+        <ul class="categories">
+            @foreach (var category in Model.Categories)
+            {
+				<li class="category-item">@category</li>
+            }
+        </ul>
+    }
+
+    <div class="container">
+
+        <div class="grid">
+
+            @if (products != null)
+            {
+                @foreach (var product in products)
+                {
+                    <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="product" />
+                }
+            }
+        </div>
+    </div>
+
+    @if (Model.LoadMore)
+    {
+        <div class="load">
+            <button>LOAD MORE <i class="fa-sharp fa-solid fa-rotate-right"></i></button>
+        </div>
+    }
+</section>

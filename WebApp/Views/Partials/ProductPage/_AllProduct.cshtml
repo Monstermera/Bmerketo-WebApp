@@ -1,0 +1,82 @@
+﻿@{
+    var products = await productService.GetAllAsync();
+    var isAdmin = signInManager.IsSignedIn(User) && User.IsInRole("admin");
+}
+
+@model GridCollectionViewModel 
+<section class="grid-collection" style="padding-top: 8rem;">
+    <h1 class="section-title">@Model.Title</h1>
+
+    @if (Model.Categories != null)
+    {
+        <ul class="categories">
+            @foreach (var category in Model.Categories)
+            {
+                <li class="category-item">@category</li>
+            }
+        </ul>
+    }
+
+    <div class="container">
+        <div class="grid">
+
+            @if (products != null)
+            {
+                foreach (var product in products)
+                {
+                    <div asp-controller="products" asp-action="details" asp-route-id="@product.ArticleNumber" class="card">
+                        <img src="~/Images/products/@product.ImageUrl" alt="@product.Name">
+                        <div class="card-menu">
+                            @if (isAdmin)
+                            {
+                                <a asp-controller="shopping" asp-action="cart" class="menu-link"><i class="fa-sharp fa-solid fa-basket-shopping"></i></a>
+                                <a asp-controller="products" asp-action="productDetails" asp-route-articleNumber="@product.ArticleNumber" class="menu-link"><i class="fa-sharp fa-solid fa-eye"></i></a>
+
+                                <form asp-controller="products" asp-action="Update" asp-route-id="@product.ArticleNumber" method="post">
+                                    <button type="submit" class="menu-link"><i class="fa-solid fa-pen"></i></button>
+                                </form>
+
+                                <form asp-controller="products" asp-action="Delete" method="post">
+                                    <input type="hidden" name="articleNumber" value="@product.ArticleNumber" />
+                                    <button type="submit" class="menu-link"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            }
+                            else
+                            {
+                                <a asp-controller="shopping" asp-action="cart" class="menu-link"><i class="fa-sharp fa-solid fa-basket-shopping"></i></a>
+                                <a asp-controller="wishlist" asp-action="Index" class="menu-link"><i class="fa-solid fa-heart"></i></a>
+                                <a asp-controller="products" asp-action="productDetails" asp-route-id="@product.ArticleNumber" class="menu-link"><i class="fa-sharp fa-solid fa-eye"></i></a>
+                                <a asp-controller="" asp-action="" class="menu-link"><i class="fa-sharp fa-solid fa-expand"></i></a>
+                            }
+                        </div>
+                        <div class="card-body">
+                            <span class="cart"><i class="fa-regular fa-cart-plus"></i></span>
+                            <h3>@product.Name.Substring(0,1).ToUpper()@product.Name.Substring(1).ToLower()</h3>
+                            <p>@product.ArticleNumber</p>
+                     @*       <p class="category">
+                                Category: @string.Join(", ", Model.Tags.Select(t => t.TagName))
+                            </p>*@
+                           <span class="price">$@string.Format("{0:0.00}", product.Price)</span>
+                        </div>
+                        <div class="box"></div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

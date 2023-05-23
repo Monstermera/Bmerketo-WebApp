@@ -1,0 +1,49 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.reviews {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        display: grid;
+
+        @include lg {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .card {
+        border: none;
+        margin: 30px 15px 0 15px;
+
+        .card-body {
+            @include lg {
+                margin-bottom: 10px;
+            }
+
+            .card-title {
+                margin-top: 25px;
+            }
+
+            .box {
+                padding-bottom: 30px;
+            }
+
+            p {
+                margin: 20px 0 15px 0;
+                color: $color-grey-5;
+            }
+
+            span {
+                font-size: 12px;
+                font-family: $font-poppins;
+                font-weight: $font-weight-regular;
+                color: $color-grey-1;
+                margin-right: 15px;
+            }
+        }
+    }
+}

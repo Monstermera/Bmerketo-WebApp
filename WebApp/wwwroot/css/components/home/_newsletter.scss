@@ -1,0 +1,83 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.newsletter {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-theme-2;
+    height: 368px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .body {
+            height: 212px;
+            width: 1170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-family: $font-poppins;
+            font-weight: $font-weight-regular;
+
+            @include xl {
+                background-color: $color-white;
+            }
+
+            input {
+                position: absolute;
+                border-radius: 30px;
+                height: 50px;
+                width: 400px;
+                outline: none;
+                border: 1px solid $border-color-2;
+                font-size: 14px;
+                padding-left: 40px;
+                color: $color-grey-3;
+
+                @include lg {
+                    width: 500px;
+                }
+
+                @include xl {
+                    width: 886px;
+                }
+            }
+
+            button {
+                position: absolute;
+                bottom: 0.1rem;
+                height: 50px;
+                width: 250px;
+                font-size: 14px;
+                transition: all 0.2s;
+
+
+                @include xl {
+                    width: 300px;
+                    right: 7.3rem;
+                    border-radius: 30px;
+                    bottom: 5.1rem;
+                    font-size: 16px;
+                    border-radius: 30px;
+                }
+
+                @include xxl {
+                    right: 8.9rem;
+                }
+
+                &:hover {
+                    background-color: $color-dark-2;
+                    color: $color-white;
+                    font-size: 15px;
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.five-cards {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-theme-3;
+    height: 285px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .images {
+        display: flex;
+        padding-right: 7rem;
+        column-gap: 10px;
+    }
+ 
+}

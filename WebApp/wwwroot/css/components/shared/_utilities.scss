@@ -1,0 +1,252 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+html,
+body {
+    font-size: 16px;
+    font-family: $font-roboto;
+    font-weight: $font-weight-regular;
+    color: $color-dark-2;
+
+    // finns det smidigare sätt?
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: $color-dark-2;
+
+    &:hover {
+        color: $color-theme-1;
+    }
+}
+
+.open-menu {
+    width: 100vw !important;
+    opacity: 0.99;
+    transform: translateX(-100%);
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    font-family: $font-poppins;
+    font-weight: $font-weight-semibold;
+    margin: 30px 0;
+}
+
+.card {
+    border: 0;
+    margin-top: 30px;
+    transition: 0.2s all;
+
+    &:hover {
+        color: $color-dark-2;
+    }
+
+    .card-menu {
+        position: absolute;
+        display: none; 
+        top: 25%;
+        left: 1.2px;
+        transition: all 0.2s ease-in-out;
+
+        @include md {
+            top: 60px;
+        }
+
+        @include lg {
+            top: 15px;
+        }
+
+        @include xl {
+            top: 40px;
+        }
+
+        @include xxl {
+            top: 65px;
+        }
+
+        .menu-link {
+            background-color: $background-color;
+            color: $color-white;
+            height: 50px;
+            width: 50px;
+            padding: 0;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: none;
+            outline: none;
+    
+            @include lg {
+                width: 40px;
+                height: 40px;
+            }
+            &:hover {
+                background-color: $color-dark-2;
+            }
+        }  
+    }
+
+    .card-body  {
+        padding: 0;
+        margin: 15px 0;
+
+        .card-title {
+            font-size: 17px;
+            font-family: $font-poppins;
+            font-weight: $font-weight-medium;
+            color: $color-dark-1;
+        }
+
+        .old-price {
+            font-size: 16px;
+            font-family: $font-poppins;
+            font-weight: $font-weight-regular;
+            color: $color-grey-5;
+            text-decoration: line-through;
+        }
+        
+        .new-price {
+            font-size: 16px;
+            font-family: $font-poppins;
+            font-weight: $font-weight-regular;
+            color: $color-theme-1;
+            margin-left: 8px;
+            
+        }
+        
+        .cart {
+            float: right;
+            font-size: 20px;
+            display: none;
+
+            &:hover {
+                color: $color-theme-1;
+            }
+        }
+    }
+
+    &:hover .card-menu {
+        display: block;
+    }
+
+    &:hover .cart {
+        display: block;
+        transition: 0.2s all;
+    }
+}
+
+.box {
+    border: 1px solid $border-color-4;
+    width: 100%;
+}
+
+.openBtn {
+    color: $color-grey-2;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+
+    &:hover {
+        color: $color-theme-1;
+        background-color: transparent;
+    }
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $color-dark-2;
+
+    .closebtn {
+        position: absolute;
+        top: 60px;
+        right: 55px;
+        font-size: 30px;
+        cursor: pointer;
+        color: $color-theme-1;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 45%;
+        width: 70%;
+        text-align: center;
+        // margin-top: 30px;
+        margin: auto;
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                padding: 15px;
+                font-size: 17px;
+                border: none;
+                float: left;
+                width: 50%;
+                background: white;
+                border-radius: 15px 0 0 15px;
+
+                @include xl {
+                    width: 40%;
+                }
+            }
+
+            .searchSubmit {
+                background-color: $color-theme-1;
+                color: $color-white;
+                float: left;
+                width: 10%;
+                padding: 15px 8px;
+                font-size: 18px;
+                border: none;
+                border-radius: 0 15px 15px 0;
+
+                @include xl {
+                    width: 6%;
+                }
+            }
+        }
+    }
+}
+
+
+.price {
+    color: $color-theme-1;
+}
+
+select {
+    margin-top: 10px;
+    border: 1px solid $border-color-4 !important;
+    background-color: $background-color-2 !important;
+    height: 46px;
+    color: $color-grey-5;
+
+    option {
+        color: $color-grey-5;
+    }
+}
+
+
+/*.user-controller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+

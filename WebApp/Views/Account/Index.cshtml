@@ -1,0 +1,33 @@
+﻿@{
+	ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+}
+@model UserInformationViewModel
+
+<section class="user-grid">
+    <h1 class="office-title">Welcome @ViewData["Title"] </h1>
+    <div style="display: flex; justify-content: center; align-items: center;">
+    <div class="user-info">
+            <div class="card">
+                <h7 class="label">Name</h7>
+                <p>@Model.FirstName @Model.LastName</p>
+                <h7 class="label">Email</h7>
+                <p>@Model.Email</p>
+
+                <h7 class="label">Phone number</h7>
+                <p>@Model.PhoneNumber</p>
+                <h7 class="label">Company</h7>
+                <p>@Model.Company</p>
+
+                @foreach (var address in Model.Addresses)
+                {
+                    <h7 class="label">Address</h7>
+                    <p>@address.StreetName, @address.PostalCode @address.City</p>
+                }
+                       
+                </div>
+            </div>
+        </div>
+</section>
+
+
+

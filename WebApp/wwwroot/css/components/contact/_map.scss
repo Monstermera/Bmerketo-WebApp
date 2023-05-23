@@ -1,0 +1,14 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.map {
+    iframe {
+        width: 100%;
+        height: 250px;
+        
+        @include lg {
+            height: 800px;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.related-products {
+    // margin-top: 30px;
+
+    .section-title {
+       position: relative;
+       right: 34.5rem;
+       font-size: 22px;
+}
+
+    .grid {
+        column-gap: 26px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .card {
+        margin: 0;
+        .card-body {
+            .cart {
+                margin-top: 17px;
+            }
+
+            .card-title {
+                margin-top: 15px;
+                white-space: nowrap;
+            }
+        }
+    }
+}

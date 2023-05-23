@@ -1,0 +1,26 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.Helpers.Services.Product;
+@using WebApp.Helpers.Services;
+@using WebApp.Models.Identity;
+@using WebApp.ViewModels.HomeView
+@using WebApp.ViewModels.ProductView
+@using WebApp.ViewModels.ContactView
+@using WebApp.ViewModels.AccountView
+@using WebApp.ViewModels.AdminView
+@using WebApp.ViewModels
+@using WebApp.Models;
+@using WebApp.Models.Entities;
+@using WebApp.Models.Entities.Product;
+@using WebApp.Models.Product;
+@using Microsoft.AspNetCore.Identity;
+@using WebApp.Helpers.Services.User;
+@using WebApp.Helpers.Repositories;
+@using WebApp.Helpers.Repositories.Product;
+@using WebApp.Helpers.Services.Home;
+
+@inject SignInManager<AppUser> signInManager
+@inject UserManager<AppUser> userManager
+
+@inject ProductService productService
+@inject UserService userService
+@inject RoleService roleService

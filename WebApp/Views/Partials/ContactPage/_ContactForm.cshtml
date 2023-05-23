@@ -1,0 +1,63 @@
+﻿@model ContactFormViewModel
+
+@{
+    ViewData["Title"] = "Write something";
+}
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">
+            @ViewData["Title"]
+            <div class="box"></div>
+        </div>
+
+        <form method="post" novalidate onsubmit="validateContactForm(event)">
+			<div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="name form-group">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" id="name" onkeyup="validateText('name')" required />
+                <small><span id="nameError" asp-validation-for="Name" class="error"></span></small>
+            </div>
+
+            <div class="email form-group">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" id="email" onkeyup="validateEmail('email')" required />
+                <small><span id="emailError" asp-validation-for="Email" class="error"></span></small>
+            </div>
+
+            <div class="phoneNumber form-group">
+                <label asp-for="PhoneNumber" class="form-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" id="phoneNumber" onkeyup="validatePhoneNumber('phoneNumber')" required />
+                <small><span id="phoneNumberError" asp-validation-for="PhoneNumber" class="error" ></span></small>
+            </div>
+
+            <div class="company form-group">
+                <label asp-for="Company" class="form-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <small><span asp-validation-for="Company" class="error"></span></small>
+            </div>
+
+            <div class="message form-group">
+                <label asp-for="Message" class="form-label"></label>
+                <textarea id="message" asp-for="Message" class="form-control" onkeyup="validateMessage('message')" required></textarea>
+                <small><span id="messageError" asp-validation-for="Message" class="error"></span></small>
+            </div>
+
+
+            <div class="saveInfo form-checkbox-group">
+                <label class="custom-checkbox">
+                    <label asp-for="SaveInfo"></label>
+                    <input asp-for="SaveInfo">
+                    <span class="checkmark"></span>
+                </label>
+                <small><span asp-validation-for="SaveInfo" class="error"></span></small>
+            </div>
+
+
+            <button  class="btn-theme">SUBMIT</button>
+        </form>
+
+
+    </div>
+</section>

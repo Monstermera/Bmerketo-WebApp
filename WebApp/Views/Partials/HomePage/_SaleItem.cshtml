@@ -1,0 +1,12 @@
+﻿@model SaleItemViewModel
+
+<div class="card">
+    <img src="@Model.ImageUrl" alt="@Model.CardTitle">
+    <div class="card-body">
+        <h5 class="card-title">@Model.CardTitle</h5>
+        <div class="box"></div>
+        <span class="old-price">$@Model.OldPrice.00</span>
+        <span class="new-price">$@Model.Price.00</span>
+        <span class="cart"><i class="fa-regular fa-cart-plus"></i></span>
+    </div>
+</div>

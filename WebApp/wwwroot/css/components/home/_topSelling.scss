@@ -1,0 +1,92 @@
+@import '../../core/fonts';
+@import '../../core/colors';
+@import '../../core/mixins';
+
+.top-selling {
+    padding-top: 30px;
+    
+    .section-title {
+
+       @include lg {
+        font-size: 30px;
+       }
+    }
+
+    .container {
+        max-width: 1770px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+        display: grid;
+        gap: 30px;
+        padding: 0 50px 0 50px;
+
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 30px 0 30px;
+        }
+
+        @include lg {
+            grid-template-columns: repeat(3, 1fr);
+            padding: 0;
+        }
+
+        
+        @include xxl {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .card-menu {
+            @include lg {
+                top: 55px;
+            }
+                
+            @include xl {
+                top: 100px;
+            }
+    
+            @include xxl {
+                top: 40px;
+            }
+        }
+
+
+        .cart {
+            font-size: 16px;
+            color: $cart-color;
+
+            &:hover {
+                color: $color-theme-1;
+            }
+        }
+    }
+ 
+
+    .angle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-poppins;
+        font-weight: $font-weight-regular;
+        color: $color-dark-2;
+        margin-top: 50px;
+
+        a {
+            border: 1px solid $color-dark-2;
+            border-radius: 5px;
+            height: 40px;
+            width: 40px;
+            margin: 0 10px 0 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: $color-theme-1;
+                color: $color-white;
+            }
+        }
+    }
+}

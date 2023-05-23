@@ -1,0 +1,27 @@
+﻿@{
+    var products = await productService.GetByTagAsync("popular");
+}
+
+@model TopSellingViewModel
+
+<section class="top-selling">
+    <h1 class="section-title">@Model.Title</h1>
+
+    <div class="container">
+        @if (products != null)
+        {
+            <div class="grid">
+                @foreach (var product in products)
+                {
+                    <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="product" />
+                }
+            </div>
+        }
+    </div>
+
+    <div class="angle">
+        <a href="#"><i class="fa-light fa-angle-left"></i></a>
+        <a href="#"><i class="fa-light fa-angle-right"></i></a>
+    </div>
+
+</section>
